@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { saveAs } from 'file-saver'; // Import the file-saver library
-import * as JSZip from 'jszip';
+import axios from 'axios';
 
 @Component({
   selector: 'app-file-compression',
@@ -8,7 +7,7 @@ import * as JSZip from 'jszip';
 })
 export class FileCompressionComponent {
   selectedFiles: File[] = [];
-  showSuccessMessage: boolean = false; // Add flag for showing the success message
+  showSuccessMessage: boolean = false;
 
   onFileChange(event: any) {
     this.selectedFiles = event.target.files;
@@ -19,23 +18,29 @@ export class FileCompressionComponent {
       return;
     }
 
-    const zip = new JSZip();
+    const formData = new FormData();
 
     for (const file of this.selectedFiles) {
-      zip.file(file.name, file, { compression: 'DEFLATE',compressionOptions: { level: 9 } }); // Add the file to the ZIP archive
+      formData.append('files', file);
     }
 
-    // Generate the ZIP file
-    zip.generateAsync({ type: 'blob' }).then((content) => {
-      // Save or download the compressed ZIP file
-      saveAs(content, 'compressed-files.zip');
-       // Show the success message
-       this.showSuccessMessage = true;
+    axios
+      .post('http://localhost:8080/api/files/upload', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+        responseType: 'blob', // Specify response type as blob
+      })
+      .then((response) => {
+        // Handle success response from the backend
+        this.showSuccessMessage = true;
 
-       // Hide the success message after a certain duration
-       setTimeout(() => {
-         this.showSuccessMessage = false;
-       }, 3000); // Duration in milliseconds
-    });
+
+
+      })
+      .catch((error) => {
+        // Handle error response from the backend
+        console.error(error);
+      });
   }
 }
