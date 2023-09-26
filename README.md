@@ -1,27 +1,48 @@
-# FileCompressionApp
+# Angular and Spring Boot Project Setup
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.
+This repository contains a web application built using Angular and Spring Boot. Follow the instructions below to set up and run the project.
 
-## Development server
+## Angular Setup
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Prerequisites
+- Visual Studio Code (or any code editor of your choice)
+- Node.js and npm installed
 
-## Code scaffolding
+### Installation
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. Open Visual Studio Code (VS Code).
 
-## Build
+2. Open a terminal within VS Code or navigate to your project directory in your preferred terminal.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+3. To install project dependencies, run the following command:
+npm i 
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Running the Angular Project
 
-## Running end-to-end tests
+4. Once the installation is complete, start the Angular development server by running:
+npm start
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+5. Open your web browser and navigate to `http://localhost:4200/` to view the Angular application.
+
+## Spring Boot Setup
+
+### Prerequisites
+- Java 11 installed
+- Apache Maven installed
+
+### Running the Spring Boot Application
+
+1. Open your preferred code editor (e.g., STS).
+
+2. Navigate to the Spring Boot project directory.
+
+3. Right-click on the main Spring Boot application file (typically, `Application.java`), and select "Run" or "Run as Spring Boot App."
+
+4. The Spring Boot application will start, and you'll see the application logs in the console.
+
+
+
